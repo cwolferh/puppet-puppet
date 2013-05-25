@@ -5,7 +5,7 @@
 # === Parameters:
 #
 # $dir::              Override the puppet directory.
-#                     Defaults to '/etc/puppet'.
+#                     Defaults to '/opt/rh/ruby193/root/etc/puppet'.
 #
 # $ca_server::        Use a different ca server. Should be either a string
 #                     with the location of the ca_server or 'false'.
@@ -61,6 +61,7 @@
 #
 class puppet (
   $dir                 = $puppet::params::dir,
+  $vardir              = $puppet::params::vardir,
   $ca_server           = $puppet::params::ca_server,
   $port                = $puppet::params::port,
   $listen              = $puppet::params::listen,

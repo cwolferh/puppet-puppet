@@ -7,8 +7,8 @@ class puppet::params {
   $version             = 'present'
   $user                = 'puppet'
   $group               = 'puppet'
-  $dir                 = '/etc/puppet'
-  $vardir              = '/var/lib/puppet'
+  $dir                 = '/opt/rh/ruby193/root/etc/puppet'
+  $vardir              = '/opt/rh/ruby193/root/var/lib/puppet'
   $ca                  = true
   $ca_server           = false
   $passenger           = true
@@ -21,7 +21,7 @@ class puppet::params {
   $runinterval         = '1800'
   $runmode             = 'service'
   $agent_noop          = false
-  $external_nodes      = '/etc/puppet/node.rb'
+  $external_nodes      = '/opt/rh/ruby193/root/etc/puppet/node.rb'
 
 
   # Need your own config templates? Specify here:
@@ -73,13 +73,14 @@ class puppet::params {
 
   # Only use 'puppet cert' on versions where puppetca no longer exists
   if versioncmp($::puppetversion, '3.0') < 0 {
+    # if it is an old version, it is not scl puppet
     $puppetca_path = '/usr/sbin'
     $puppetca_bin  = 'puppetca'
     $puppetrun_cmd = '/usr/sbin/puppetrun'
   } else {
-    $puppetca_path = '/usr/bin'
+    $puppetca_path = '/opt/rh/ruby193/root/usr/bin'
     $puppetca_bin = 'puppet cert'
-    $puppetrun_cmd = '/usr/bin/puppet kick'
+    $puppetrun_cmd = '/opt/rh/ruby193/root/usr/bin kick'
   }
 
   $puppetca_cmd = "${puppetca_path}/${puppetca_bin}"
