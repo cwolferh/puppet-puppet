@@ -80,7 +80,7 @@ class puppet::params {
   } else {
     $puppetca_path = '/opt/rh/ruby193/root/usr/bin'
     $puppetca_bin = 'puppet cert'
-    $puppetrun_cmd = '/opt/rh/ruby193/root/usr/bin kick'
+    $puppetrun_cmd = '/opt/rh/ruby193/root/usr/bin/puppet kick'
   }
 
   $puppetca_cmd = "${puppetca_path}/${puppetca_bin}"
